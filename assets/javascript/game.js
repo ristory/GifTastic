@@ -1,7 +1,8 @@
-var url = "http://api.giphy.com/v1/gifs/search?q=" + a + "&api_key=yLhCT9SVV5K1G6OEs6Tw2AxbJVSKqWw2&limit=10";
+
+var url = "http://api.giphy.com/v1/gifs/search?q=" + "&api_key=yLhCT9SVV5K1G6OEs6Tw2AxbJVSKqWw2&limit=10";
 function getAPI()
 {
-    fetch(url)
+    fetch(url)  
     .then(function(r)
     {
         return r.json();
