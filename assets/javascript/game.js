@@ -19,6 +19,17 @@ $(".submit").on("click", function()
     }
 })
 
+$(document).on("click", "img", function() {  
+    var state = $(this).attr("data-state");
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
+
 $(document).on("click", ".animal-bt", function()
 {
     var animal = $(this).attr("data-name");
@@ -32,14 +43,19 @@ $(document).on("click", ".animal-bt", function()
     {
         for(i = 0; i<10; i++)
         {
-            console.log(data.data[i].images)
+            var animalDiv = $("<div>");
             var rate = data.data[i].rating;
-            var imgURL = data.data[i].images.original.url; 
-            console.log(imgURL)           ;
-            var image = $("<img>").attr("src", imgURL);
+            var imgURL = data.data[i].images.fixed_height.url; 
+            var imgURLstill = data.data[i].images.fixed_height_still.url;            ;
+            var image = $("<img>");
+            image.attr("src", imgURLstill);
+            image.attr("data-still", imgURLstill);
+            image.attr("data-animate", imgURL);
+            image.attr("data-state", "still");
             var pOne = $("<p>").text("Rating: " + rate);
-            $(".gif").append(pOne);
-            $(".gif").append(image);
+            animalDiv.append(pOne);
+            animalDiv.append(image);
+            $(".gif").prepend(animalDiv);
         }
     })
     .catch(function(err)
