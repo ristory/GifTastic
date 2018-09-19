@@ -43,7 +43,7 @@ $(document).on("click", ".animal-bt", function()
     {
         for(i = 0; i<10; i++)
         {
-            var animalDiv = $("<div>");
+            var animalDiv = $("<li>");
             var rate = data.data[i].rating;
             var imgURL = data.data[i].images.fixed_height.url; 
             var imgURLstill = data.data[i].images.fixed_height_still.url;            ;

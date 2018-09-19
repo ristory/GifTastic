@@ -8,3 +8,13 @@
     margin-left: 5px; 
     margin-bottom: 5px;
 }
+
+li
+{
+    display: inline-block;
+}
+
+img
+{
+    margin-right: 10px;
+}
